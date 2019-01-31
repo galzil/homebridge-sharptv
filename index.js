@@ -15,14 +15,14 @@ function SharpTVAccessory(log, config) {
   this.service = 'Switch';
 
   this.name		       = config['name'];
-  this.onCommand	   = config['on'];
-  this.offCommand	   = config['off'];
-  this.stateCommand	 = config['state'];
-  this.onValue		   = config['on_value'];
+  this.onCommand	   = config['on'] || "POWR1   ";
+  this.offCommand	   = config['off'] || "POWR0   ";
+  this.stateCommand	 = config['state'] || "POWR?   ";
+  this.onValue		   = config['on_value'] || "1";
   this.onValue	   	 = this.onValue.trim();
   this.exactMatch	   = config['exact_match'] || true;
   this.host          = config['host'];
-  this.port          = config['port'];
+  this.port          = config['port'] || 10002;
 }
 
 SharpTVAccessory.prototype.matchesString = function(match) {
